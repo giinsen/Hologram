@@ -39,7 +39,7 @@ public class PlayerMovementJoycon : MonoBehaviour
 
                 Quaternion hg = Quaternion.AngleAxis(-horizontal, Vector3.up);
                 Quaternion vg = Quaternion.AngleAxis(vertical, Vector3.up);
-                Quaternion q = hg * vq;
+                Quaternion q = hg * vg;
 
                 //transform.Translate(transform.forward * 10f * Time.deltaTime);
                 //GetComponent<Rigidbody>().MovePosition(transform.forward * 10f * Time.deltaTime);
