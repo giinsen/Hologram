@@ -21,7 +21,7 @@ public class OrbitorPlayer : Orbitor
 		joycon = joycons[jc_ind];		
 	}
 
-	protected override void Update()
+	private void LateUpdate()
 	{
 		base.Update();
 		Vector2 input = new Vector2(joycon.GetStick()[0], joycon.GetStick()[1]);

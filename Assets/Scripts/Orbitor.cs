@@ -5,7 +5,7 @@ using UnityEngine;
 public class Orbitor : MonoBehaviour
 {
     public float radius = 1.5f;
-    public float poleMargin = 3.1416f/2.0f + 0.2f;
+    public float poleMargin = 3.1416f / 2.0f + 0.2f;
 
     private float circleY = 0;
     private float circleX = 0;
@@ -30,7 +30,7 @@ public class Orbitor : MonoBehaviour
     /// <param name="polecap">does the movement is restricted by the pole</param>
     protected void Move(float vertical, float horizontal, float speed, bool polecap = true)
     {
-        if (polecap && Mathf.Abs(circleY) <= poleMargin)
+        if (!polecap || Mathf.Abs(circleY + vertical * speed * Time.deltaTime) <= poleMargin)
         {
             circleY += vertical * speed * Time.deltaTime;
         }

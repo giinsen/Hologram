@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 6
-  poleMargin: 1.7708
+  poleMargin: 1
   speed: 3
   jc_ind: 1
 --- !u!54 &27166347
@@ -444,7 +444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 6
-  poleMargin: 1.7708
+  poleMargin: 1
   speed: 3
   jc_ind: 0
 --- !u!1 &361968790
