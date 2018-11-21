@@ -1,17 +1,16 @@
 fileFormatVersion: 2
-guid: 220fed4b068c2d643a1bce9ad2cd548b
+guid: 1db00ed516d7f1842ba189ec677006eb
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Box002
+    100000: Box001
     100002: //RootNode
-    400000: Box002
+    400000: Box001
     400002: //RootNode
-    2100000: wire_135110008
-    2100002: Box002Mat
-    2300000: Box002
-    3300000: Box002
-    4300000: Box002
+    2100000: Box001Mat
+    2300000: Box001
+    3300000: Box001
+    4300000: Box001
   externalObjects: {}
   materials:
     importMaterials: 1
