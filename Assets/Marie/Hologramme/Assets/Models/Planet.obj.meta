@@ -5,12 +5,17 @@ ModelImporter:
   fileIDToRecycleName:
     100000: GeoSphere001
     100002: //RootNode
+    100004: default
     400000: GeoSphere001
     400002: //RootNode
+    400004: default
     2100000: wire_061135006
     2300000: GeoSphere001
+    2300002: default
     3300000: GeoSphere001
+    3300002: default
     4300000: GeoSphere001
+    4300002: default
   externalObjects: {}
   materials:
     importMaterials: 1

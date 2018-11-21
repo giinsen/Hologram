@@ -5,12 +5,20 @@ ModelImporter:
   fileIDToRecycleName:
     100000: Box001
     100002: //RootNode
+    100004: default
     400000: Box001
     400002: //RootNode
+    400004: default
     2100000: Box001Mat
+    2100002: wire_135110008
+    2100004: wire_135110008.002
+    2100006: wire_135110008.001
     2300000: Box001
+    2300002: default
     3300000: Box001
+    3300002: default
     4300000: Box001
+    4300002: default
   externalObjects: {}
   materials:
     importMaterials: 1
