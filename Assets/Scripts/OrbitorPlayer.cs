@@ -13,6 +13,7 @@ public class OrbitorPlayer : Orbitor
 	private List<Joycon> joycons = new List<Joycon>();
 	private Joycon joycon;
 	private Rigidbody rb;
+	private Vector2 tempInput = Vector2.zero;
 
 	private void Start()
 	{
@@ -33,10 +34,11 @@ public class OrbitorPlayer : Orbitor
 	{
 		base.Update();
 		Vector2 input = new Vector2(joycon.GetStick()[0], joycon.GetStick()[1]);
+		if (input != Vector2.zero) tempInput = input;
 		Move(-input.y, input.x, speed);
 		if (joycon.GetButtonDown(Joycon.Button.SHOULDER_1))
 		{
-			Shoot(input);
+			Shoot(tempInput);
 		}
 	}
 
