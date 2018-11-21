@@ -1,13 +1,14 @@
 fileFormatVersion: 2
 guid: 220fed4b068c2d643a1bce9ad2cd548b
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: Box002
     100002: //RootNode
     400000: Box002
     400002: //RootNode
     2100000: wire_135110008
+    2100002: Box002Mat
     2300000: Box002
     3300000: Box002
     4300000: Box002
@@ -62,6 +63,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0

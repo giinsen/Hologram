@@ -7,6 +7,7 @@ public class Orbitor : MonoBehaviour
     public float radius = 1.5f;
     public float poleMargin = 3.1416f / 2.0f + 0.2f;
     public Transform globe;
+    public Vector3 position;
 
     protected float circleY = 0;
     protected float circleX = 0;
@@ -16,11 +17,10 @@ public class Orbitor : MonoBehaviour
         float x = radius * Mathf.Cos(circleY) * Mathf.Cos(circleX);
         float y = radius * Mathf.Sin(circleY);
         float z = radius * Mathf.Cos(circleY) * Mathf.Sin(circleX);
-        transform.position = new Vector3(x, y, z);
+        position = new Vector3(x, y, z);
+        transform.position = position;
 
-        transform.position += globe.position;
-
-        transform.up = transform.position.normalized;
+        transform.position += globe.position;   
     }
 
 
