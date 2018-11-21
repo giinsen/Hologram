@@ -6,9 +6,10 @@ public class Orbitor : MonoBehaviour
 {
     public float radius = 1.5f;
     public float poleMargin = 3.1416f / 2.0f + 0.2f;
+    public Transform globe;
 
-    private float circleY = 0;
-    private float circleX = 0;
+    protected float circleY = 0;
+    protected float circleX = 0;
 
     virtual protected void Update()
     {
@@ -16,6 +17,8 @@ public class Orbitor : MonoBehaviour
         float y = radius * Mathf.Sin(circleY);
         float z = radius * Mathf.Cos(circleY) * Mathf.Sin(circleX);
         transform.position = new Vector3(x, y, z);
+
+        transform.position += globe.position;
 
         transform.up = transform.position.normalized;
     }
@@ -34,7 +37,7 @@ public class Orbitor : MonoBehaviour
         {
             circleY += vertical * speed * Time.deltaTime;
         }
-        circleX += horizontal * speed * Time.deltaTime;
+        circleX += horizontal * speed * Time.deltaTime; 
     }
 
     private float CircleSum(float min, float max, float input)
