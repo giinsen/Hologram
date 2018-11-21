@@ -1,12 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Earth : MonoBehaviour {
-    [Header("Settings")]
-    public float Speed = 1.0f;
+namespace Marie
+{
+    public class Earth : MonoBehaviour
+    {
+        [Header("Settings")]
+        public float Speed = 1.0f;
 
-	void Update () {
+        void Update()
+        {
 
-        this.transform.Rotate(transform.position.x, Speed, transform.position.z);
-	}
+            this.transform.Rotate(transform.position.x, Speed, transform.position.z);
+        }
+    }
+
 }
+

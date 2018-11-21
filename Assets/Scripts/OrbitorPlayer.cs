@@ -46,10 +46,4 @@ public class OrbitorPlayer : Orbitor
 		missile.GetComponent<OrbitorMissile>().SetInput(input);
 	}
 
-	private void OnDrawGizmos()
-	{
-		Gizmos.color = Color.green;
-		Gizmos.DrawLine(transform.position, transform.position + new Vector3(joycon.GetStick()[0], joycon.GetStick()[1]));
-
-	}
 }

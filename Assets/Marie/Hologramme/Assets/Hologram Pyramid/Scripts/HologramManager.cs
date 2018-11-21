@@ -2,32 +2,36 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class HologramManager : MonoBehaviour {
-    [Header("Customization")]
-	public Image Square;
-	private Color SquareColor = new Color (1f, 1f, 1f, 1f);
-    private bool HideSquare = false;
-    public GameObject TapButton;
-
-    void Awake()
+namespace Marie
+{
+    public class HologramManager : MonoBehaviour
     {
-        Screen.sleepTimeout = SleepTimeout.NeverSleep;
-    }
+        [Header("Customization")]
+        public Image Square;
+        private Color SquareColor = new Color(1f, 1f, 1f, 1f);
+        private bool HideSquare = false;
+        public GameObject TapButton;
 
-    public void TapToHide()
-    {
-        HideSquare = true;
-        TapButton.SetActive(false);
-    }
-
-    void Update()
-    {
-        if (HideSquare)
+        void Awake()
         {
-            if (SquareColor.a != 0f)
+            Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        }
+
+        public void TapToHide()
+        {
+            HideSquare = true;
+            TapButton.SetActive(false);
+        }
+
+        void Update()
+        {
+            if (HideSquare)
             {
-                SquareColor.a = SquareColor.a - 0.002f;
-                Square.color = new Color(1f, 1f, 1f, SquareColor.a);
+                if (SquareColor.a != 0f)
+                {
+                    SquareColor.a = SquareColor.a - 0.002f;
+                    Square.color = new Color(1f, 1f, 1f, SquareColor.a);
+                }
             }
         }
     }
