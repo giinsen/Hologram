@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,6 @@ using UnityEngine;
 public class ParametersMgr : MonoBehaviour
 {
     public static ParametersMgr instance;
-    public TextAsset CSVFile;
 
     private Dictionary<string, string> parameters = new Dictionary<string, string>();
 
@@ -22,7 +22,9 @@ public class ParametersMgr : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        parameters = SplitCSV(CSVFile.text);
+        string csv = File.ReadAllText(Application.dataPath + "/gameplay_Parameters.csv");
+        parameters = SplitCSV(csv);
+
         Debug.Log("PARAMETERS :");
         Debug.Log(PrintParameters());
     }
