@@ -22,7 +22,7 @@ public class ParametersMgr : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        string csv = File.ReadAllText(Application.dataPath + "/gameplay_Parameters.csv");
+        string csv = File.ReadAllText(Application.dataPath + "gameplay_Parameters.csv");
         parameters = SplitCSV(csv);
 
         Debug.Log("PARAMETERS :");
