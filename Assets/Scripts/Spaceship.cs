@@ -34,7 +34,7 @@ public class Spaceship : MonoBehaviour {
 
             if (v.normalized.y < 0)
             {
-                transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x - 180f, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z));
+                transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x - 180f, transform.rotation.eulerAngles.y + 90f, transform.rotation.eulerAngles.z));
             }
         }
     }

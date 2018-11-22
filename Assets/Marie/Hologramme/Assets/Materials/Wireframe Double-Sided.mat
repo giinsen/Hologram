@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Wireframe Double-Sided
-  m_Shader: {fileID: 4800000, guid: 0ee0c86dac5512f40a5c118571d81117, type: 3}
+  m_Shader: {fileID: 4800000, guid: a8e95b34a6e847e4ca902f1c50a65912, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0

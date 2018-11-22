@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4919817460095824}
   - component: {fileID: 33013089614942760}
   - component: {fileID: 23492925571323498}
+  - component: {fileID: 95186498159273412}
   m_Layer: 0
   m_Name: Spaceship1
   m_TagString: Untagged
@@ -56,7 +57,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 89a205bf973c3964ca62b5194d4c4d68, type: 2}
+  - {fileID: 2100000, guid: 2078f6d83bdb52d4697265f5f1bcbdcb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82,4 +83,22 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1347244750986200}
-  m_Mesh: {fileID: 4300002, guid: 220fed4b068c2d643a1bce9ad2cd548b, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 220fed4b068c2d643a1bce9ad2cd548b, type: 3}
+--- !u!95 &95186498159273412
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1347244750986200}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 33cb334365a75564b9d49680bd95ae00, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
