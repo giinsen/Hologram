@@ -15,6 +15,7 @@ public class GameMgr : MonoBehaviour
     private void Start()
     {
 		StartCoroutine(SpawnTimer());
+		spawnTimer = ParametersMgr.instance.GetParameterFloat("timeIntervalBetweenSpawns");
     }
 
 	private void Update()

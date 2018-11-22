@@ -6,16 +6,17 @@ public class OrbitorPowerUp : Orbitor
 {
 	public float lifeDuration = 20.0f;
 
-
 	public void Setup(float x, float y)
 	{
 		circleX = x;
 		circleY = y;
 	}
 
-	private void Start()
-	{
+	protected override void Start()
+    {
+		base.Start();
 		StartCoroutine(DespawnTimer());
+		lifeDuration = ParametersMgr.instance.GetParameterFloat("powerUpLifetime");
 	}
 
 	private IEnumerator DespawnTimer()
@@ -31,7 +32,7 @@ public class OrbitorPowerUp : Orbitor
 	{
 		if (other.tag == "Player")
 		{
-			//Power-up Player
+			other.gameObject.GetComponent<OrbitorPlayer>().IncreaseNbMaxMissile();
 			Destroy(this.gameObject);
 		}
 	}
