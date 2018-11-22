@@ -2,11 +2,11 @@
 using System.Collections;
 
 public class Earth : MonoBehaviour {
-    [Header("Settings")]
-    public float Speed = 1.0f;
+
+    public float Speed;
 
 	void Update () {
 
-        this.transform.Rotate(transform.position.x, Speed, transform.position.z);
+        this.transform.Rotate(0, Speed, 0);
 	}
 }
