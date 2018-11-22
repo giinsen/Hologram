@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198596247292557366}
   - component: {fileID: 199769574481013592}
   m_Layer: 0
-  m_Name: HitFX
+  m_Name: HitFX 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

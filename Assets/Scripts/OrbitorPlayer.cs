@@ -10,6 +10,7 @@ public class OrbitorPlayer : Orbitor
 	public GameObject missilePrefab;
 
     public GameObject mySpaceship;
+    public GameObject hitAnim;
 
 	public int life = 5;
 	public float shootingCD = 1.0f;
@@ -20,6 +21,10 @@ public class OrbitorPlayer : Orbitor
 	[HideInInspector]
 	public Vector2 tempInput = Vector2.zero;
 	private bool canShoot = true;
+
+    public int currentLivingMissile = 0;
+    private int nbMaxMissile = 1;
+
 
 	private void Start()
 	{
@@ -46,7 +51,7 @@ public class OrbitorPlayer : Orbitor
         }
 		Move(-input.y, input.x, speed);
 
-        if (joycon.GetButtonDown(Joycon.Button.SHOULDER_1) && canShoot)
+        if (joycon.GetButtonDown(Joycon.Button.SHOULDER_1) && canShoot && currentLivingMissile < nbMaxMissile)
 		{
 			Shoot(tempInput);
 		}
@@ -55,9 +60,11 @@ public class OrbitorPlayer : Orbitor
 	private void Shoot(Vector2 input)
 	{
 		canShoot = false;
-		GameObject missile = Instantiate(missilePrefab, transform.position, Quaternion.identity);
+        currentLivingMissile++;
+        GameObject missile = Instantiate(missilePrefab, transform.position, Quaternion.identity);
 		missile.GetComponent<OrbitorMissile>().SetInput(-input);
 		missile.GetComponent<OrbitorMissile>().SetInitialPosition(circleX, circleY);
+        missile.GetComponent<OrbitorMissile>().myShooterParent = gameObject;
 		StartCoroutine(ShootCD());
 	}
 
@@ -71,20 +78,45 @@ public class OrbitorPlayer : Orbitor
 	{
 		life --;
 		if (life <= 0)
-		{			
-            mySpaceship.GetComponent<Animator>().SetTrigger("Death");
-            Invoke("DestroySpaceship", 1f);
-		}
+		{
+            //mySpaceship.GetComponent<Animator>().SetTrigger("Death");
+            canShoot = false;
+            GameObject h = hitAnim;
+            h.transform.forward = transform.position.normalized;
+            h.transform.localScale = new Vector3(15, 15, 15);
+            Instantiate(h, transform);
+            h.transform.localScale = new Vector3(20, 20, 20);
+            Instantiate(h, transform);
+            Invoke("DestroySpaceship", 2f);
+            mySpaceship.GetComponent<MeshRenderer>().enabled = false;
+            
+        }
         else
         {
+            //disable collider et invoke la réctiovation 2s plus tard
+            GetComponent<CapsuleCollider>().enabled = false;
+            Invoke("ReactiveCapsuleCollider", 2f);
             mySpaceship.GetComponent<Animator>().SetTrigger("Hit");
-            Debug.Log("Hit");
+            GameObject h = hitAnim;
+            h.transform.forward = transform.position.normalized;
+            h.transform.localScale = new Vector3(10,10,10);
+            Instantiate(h, transform);
         }
     }
 
-    public void DestroySpaceship()
+    private void DestroySpaceship()
     {
         Destroy(this.gameObject);
+    }
+
+    private void ReactiveCapsuleCollider()
+    {
+        GetComponent<CapsuleCollider>().enabled = true;
+    }
+
+    public void IncreaseNbMaxMissile()
+    {
+        nbMaxMissile++;
     }
 
 }

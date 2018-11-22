@@ -9,6 +9,8 @@ public class OrbitorMissile : Orbitor
 	public float timeBeforeDeath = 10.0f;
 	public float initialTime = 0.2f;
 
+    public GameObject myShooterParent;
+
 	private Vector2 initialInput;
 	private bool lethal = false;
 
@@ -38,6 +40,7 @@ public class OrbitorMissile : Orbitor
 		if (this != null)
 		{
 			Destroy(this.gameObject);
+            myShooterParent.GetComponent<OrbitorPlayer>().currentLivingMissile--;
 		}
 	}
 
@@ -63,7 +66,8 @@ public class OrbitorMissile : Orbitor
 		if (other.collider.tag == "Player" && lethal)
 		{
 			other.collider.GetComponent<OrbitorPlayer>().Hit();
-			Destroy(this.gameObject);
+            myShooterParent.GetComponent<OrbitorPlayer>().currentLivingMissile--;
+            Destroy(this.gameObject);
 		}
 	}
 }
