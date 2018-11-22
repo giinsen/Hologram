@@ -90,6 +90,7 @@ public class ParametersMgr : MonoBehaviour
             bool parsingSuccessful = int.TryParse(str, out result);
             if (parsingSuccessful)
             {
+                Debug.Log(parameterName + " has been called!");
                 return result;
             }
             else
@@ -114,6 +115,7 @@ public class ParametersMgr : MonoBehaviour
             bool parsingSuccessful = bool.TryParse(str, out result);
             if (parsingSuccessful)
             {
+                Debug.Log(parameterName + " has been called!");
                 return result;
             }
             else
