@@ -1,12 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Earth : MonoBehaviour {
+public class Earth : MonoBehaviour
+{
+    private float Speed;
 
-    public float Speed;
+    private void Start()
+    {
+        Speed = ParametersMgr.instance.GetParameterFloat("planetRotationSpeed");
+        transform.localScale = Vector3.one * ParametersMgr.instance.GetParameterFloat("planetScale");
+    }
 
-	void Update () {
-
+    void Update()
+    {
         this.transform.Rotate(0, Speed, 0);
-	}
+    }
 }

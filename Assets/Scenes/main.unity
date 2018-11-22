@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -113,6 +113,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &73970994
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 73970995}
+  - component: {fileID: 73970996}
+  m_Layer: 0
+  m_Name: GameMgr
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &73970995
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 73970994}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &73970996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 73970994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1e205dc16d0edf47a8e739f96745c1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rangeX: {x: 0, y: 0}
+  rangeY: {x: 0, y: 0}
+  powerUpPrefab: {fileID: 0}
+  spawnTimer: 5
 --- !u!1 &121823700 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 220fed4b068c2d643a1bce9ad2cd548b,
@@ -735,9 +779,11 @@ MonoBehaviour:
   missilePrefab: {fileID: 1881121403924572, guid: 58ca511c1fbb3804da72fbfcedaa88b7,
     type: 2}
   mySpaceship: {fileID: 220132875}
+  hitAnim: {fileID: 0}
   life: 5
   shootingCD: 1
   tempInput: {x: 0, y: 0}
+  currentLivingMissile: 0
 --- !u!54 &634143435
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1321,6 +1367,47 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1262165787
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1262165788}
+  - component: {fileID: 1262165789}
+  m_Layer: 0
+  m_Name: ParametersMgr
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1262165788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1262165787}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1262165789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1262165787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae2cff3eb617d748acf1746e44c3160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CSVFile: {fileID: 4900000, guid: 40132f447068d464cbb3fed49a1f35a7, type: 3}
 --- !u!1 &1419919537
 GameObject:
   m_ObjectHideFlags: 0
@@ -1530,9 +1617,11 @@ MonoBehaviour:
   missilePrefab: {fileID: 1866124781960016, guid: 274c868bd9f940a42ba0527e656377ce,
     type: 2}
   mySpaceship: {fileID: 121823700}
+  hitAnim: {fileID: 0}
   life: 5
   shootingCD: 1
   tempInput: {x: 0, y: 0}
+  currentLivingMissile: 0
 --- !u!54 &1533774306
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2239,4 +2328,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72dab9b3b3e0f4a46be15f34163811aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0.1

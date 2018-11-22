@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class Orbitor : MonoBehaviour
 {
-    public float radius = 1.5f;
-    public float poleMargin = 3.1416f / 2.0f + 0.2f;
+    public float radius;
+    public float poleMargin;
     public Transform globe;
     public Vector3 position;
 
     protected float circleY = 0;
     protected float circleX = 0;
+
+    virtual protected void Start()
+    {
+        float planetScale = ParametersMgr.instance.GetParameterFloat("planetScale");
+        radius = planetScale/2.0f + ParametersMgr.instance.GetParameterFloat("orbitHeight");
+    }
 
     virtual protected void Update()
     {

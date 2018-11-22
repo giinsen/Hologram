@@ -38,7 +38,6 @@ public class ParametersMgr : MonoBehaviour
         return result;
     }
 
-
     private Dictionary<string, string> SplitCSV(string csv)
     {
         Dictionary<string, string> result = new Dictionary<string, string>();
@@ -66,6 +65,7 @@ public class ParametersMgr : MonoBehaviour
             bool parsingSuccessful = float.TryParse(str, out result);
             if (parsingSuccessful)
             {
+                Debug.Log(parameterName + " has been called!");
                 return result;
             }
             else

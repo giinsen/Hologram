@@ -1,0 +1,13 @@
+orbitHeight;0,1
+planetScale;15
+planetRotationSpeed;0,1
+shipHealth;3
+shipSpeed;1
+shipMoveContinually;true
+cdShoot;1
+projectileLifetime;1,5
+projectileSpeed;2
+projectileHurtOwner;true
+cartridge;1
+timeIntervalBetweenSpawns;15
+powerUpLifetime;20
