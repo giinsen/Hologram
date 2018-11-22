@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -113,6 +113,29 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &121823700 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 220fed4b068c2d643a1bce9ad2cd548b,
+    type: 3}
+  m_PrefabInternal: {fileID: 946351265}
+--- !u!95 &121823701
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 121823700}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 220fed4b068c2d643a1bce9ad2cd548b, type: 3}
+  m_Controller: {fileID: 9100000, guid: ff8abfecad41fd94caa25a98a67fd123, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &186630512
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,6 +259,29 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &220132875 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 220fed4b068c2d643a1bce9ad2cd548b,
+    type: 3}
+  m_PrefabInternal: {fileID: 1640025718}
+--- !u!95 &220132876
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 220132875}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 220fed4b068c2d643a1bce9ad2cd548b, type: 3}
+  m_Controller: {fileID: 9100000, guid: 33cb334365a75564b9d49680bd95ae00, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &353093229
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,7 +707,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 634143432}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.55, y: 6.79, z: 0}
+  m_LocalPosition: {x: 3.55, y: 10.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 687591606}
@@ -679,15 +725,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225c554b7c440564ba2f5927c709d0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 7.8
+  radius: 7.6
   poleMargin: 1
   globe: {fileID: 1637563598}
   position: {x: 0, y: 0, z: 0}
   speed: 1
   jc_ind: 1
   startingPosition: {x: 0, y: 0}
-  missilePrefab: {fileID: 1487224925569572, guid: d6c99e6a7544e034a931194109db3448,
+  missilePrefab: {fileID: 1881121403924572, guid: 58ca511c1fbb3804da72fbfcedaa88b7,
     type: 2}
+  mySpaceship: {fileID: 220132875}
   life: 5
   shootingCD: 1
   tempInput: {x: 0, y: 0}
@@ -1213,7 +1260,16 @@ Prefab:
       propertyPath: m_Name
       value: SpaceShip
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9500000, guid: 220fed4b068c2d643a1bce9ad2cd548b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ff8abfecad41fd94caa25a98a67fd123, type: 2}
+    - target: {fileID: 9500000, guid: 220fed4b068c2d643a1bce9ad2cd548b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 9500000, guid: 220fed4b068c2d643a1bce9ad2cd548b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 220fed4b068c2d643a1bce9ad2cd548b, type: 3}
   m_IsPrefabAsset: 0
 --- !u!4 &946351266 stripped
@@ -1446,7 +1502,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1533774303}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.163, y: 6.79, z: 1.45}
+  m_LocalPosition: {x: -0.163, y: 10.27, z: 1.45}
   m_LocalScale: {x: 0.28576, y: 0.28576, z: 0.28576}
   m_Children:
   - {fileID: 1807045597}
@@ -1464,15 +1520,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225c554b7c440564ba2f5927c709d0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 7.8
+  radius: 7.6
   poleMargin: 1
   globe: {fileID: 1637563598}
   position: {x: 0, y: 0, z: 0}
   speed: 1
   jc_ind: 0
   startingPosition: {x: 3.14, y: 0}
-  missilePrefab: {fileID: 1487224925569572, guid: d6c99e6a7544e034a931194109db3448,
+  missilePrefab: {fileID: 1866124781960016, guid: 274c868bd9f940a42ba0527e656377ce,
     type: 2}
+  mySpaceship: {fileID: 121823700}
   life: 5
   shootingCD: 1
   tempInput: {x: 0, y: 0}
@@ -1606,7 +1663,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: 220fed4b068c2d643a1bce9ad2cd548b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: -13.9
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 220fed4b068c2d643a1bce9ad2cd548b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1614,7 +1671,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 220fed4b068c2d643a1bce9ad2cd548b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 220fed4b068c2d643a1bce9ad2cd548b, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1660,7 +1717,12 @@ Prefab:
       propertyPath: m_Name
       value: SpaceShip
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9500000, guid: 220fed4b068c2d643a1bce9ad2cd548b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 33cb334365a75564b9d49680bd95ae00, type: 2}
+    m_RemovedComponents:
+    - {fileID: 9500000, guid: 220fed4b068c2d643a1bce9ad2cd548b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 220fed4b068c2d643a1bce9ad2cd548b, type: 3}
   m_IsPrefabAsset: 0
 --- !u!4 &1640025719 stripped

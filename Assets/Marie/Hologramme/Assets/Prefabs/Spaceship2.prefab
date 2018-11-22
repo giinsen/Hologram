@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4343044390531520}
   - component: {fileID: 33287073997964066}
   - component: {fileID: 23554726743173306}
-  - component: {fileID: 95447101114084090}
+  - component: {fileID: 95648095029946798}
   m_Layer: 0
   m_Name: Spaceship2
   m_TagString: Untagged
@@ -84,7 +84,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1439235288902056}
   m_Mesh: {fileID: 4300002, guid: 1db00ed516d7f1842ba189ec677006eb, type: 3}
---- !u!95 &95447101114084090
+--- !u!95 &95648095029946798
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1

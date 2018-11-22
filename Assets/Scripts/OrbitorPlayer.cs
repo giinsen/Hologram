@@ -9,6 +9,8 @@ public class OrbitorPlayer : Orbitor
 	public Vector2 startingPosition;
 	public GameObject missilePrefab;
 
+    public GameObject mySpaceship;
+
 	public int life = 5;
 	public float shootingCD = 1.0f;
 
@@ -42,7 +44,7 @@ public class OrbitorPlayer : Orbitor
         {
             tempInput = input;
         }
-		Move(input.y, -input.x, speed);
+		Move(-input.y, input.x, speed);
 
         if (joycon.GetButtonDown(Joycon.Button.SHOULDER_1) && canShoot)
 		{
@@ -54,7 +56,7 @@ public class OrbitorPlayer : Orbitor
 	{
 		canShoot = false;
 		GameObject missile = Instantiate(missilePrefab, transform.position, Quaternion.identity);
-		missile.GetComponent<OrbitorMissile>().SetInput(input);
+		missile.GetComponent<OrbitorMissile>().SetInput(-input);
 		missile.GetComponent<OrbitorMissile>().SetInitialPosition(circleX, circleY);
 		StartCoroutine(ShootCD());
 	}
@@ -69,9 +71,20 @@ public class OrbitorPlayer : Orbitor
 	{
 		life --;
 		if (life <= 0)
-		{
-			Destroy(this.gameObject);
+		{			
+            mySpaceship.GetComponent<Animator>().SetTrigger("Death");
+            Invoke("DestroySpaceship", 1f);
 		}
-	}
+        else
+        {
+            mySpaceship.GetComponent<Animator>().SetTrigger("Hit");
+            Debug.Log("Hit");
+        }
+    }
+
+    public void DestroySpaceship()
+    {
+        Destroy(this.gameObject);
+    }
 
 }
