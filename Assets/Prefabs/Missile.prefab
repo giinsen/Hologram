@@ -96,13 +96,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0543412705b561c49aa4571efac0e2ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 5.5
+  radius: 7.8
   poleMargin: 1.7708
   globe: {fileID: 0}
   position: {x: 0, y: 0, z: 0}
-  speed: 3
+  speed: 2
   die: 1
-  timeBeforeDeath: 10
+  timeBeforeDeath: 4
   initialTime: 0.2
 --- !u!135 &135388635335874088
 SphereCollider:
