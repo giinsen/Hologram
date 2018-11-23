@@ -95,7 +95,9 @@ public class OrbitorPlayer : Orbitor
         life--;
         if (life <= 0)
         {
-            //mySpaceship.GetComponent<Animator>().SetTrigger("Death");
+
+            //instancier le texte et réduire la planète
+
             canShoot = false;
             GameObject h = hitAnim;
             h.transform.forward = transform.position.normalized;
