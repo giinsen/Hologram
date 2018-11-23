@@ -7,7 +7,7 @@ public class Orbitor : MonoBehaviour
     public float radius;
     public float poleMargin;
     public Transform globe;
-    public Vector3 position;
+    private Vector3 position;
 
     protected float circleY = 0;
     protected float circleX = 0;
@@ -15,6 +15,7 @@ public class Orbitor : MonoBehaviour
     virtual protected void Start()
     {
         float planetScale = ParametersMgr.instance.GetParameterFloat("planetScale");
+        Debug.Log(ParametersMgr.instance.GetParameterFloat("orbitHeight"));
         radius = planetScale/2.0f + ParametersMgr.instance.GetParameterFloat("orbitHeight");
     }
 

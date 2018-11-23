@@ -22,7 +22,8 @@ public class ParametersMgr : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        string csv = File.ReadAllText(Application.dataPath + "gameplay_Parameters.csv");
+        string csv = File.ReadAllText(Application.dataPath + "/gameplay_Parameters.csv");
+        Debug.Log(csv);
         parameters = SplitCSV(csv);
 
         Debug.Log("PARAMETERS :");
@@ -49,7 +50,7 @@ public class ParametersMgr : MonoBehaviour
         foreach (string str in lines)
         {
             string[] line = str.Split(';');
-            Debug.Log(line.Count());
+            // Debug.Log(line.Count());
             if (line.Count() == 2)
             {
                 result.Add(line[0], line[1]);
@@ -67,7 +68,7 @@ public class ParametersMgr : MonoBehaviour
             bool parsingSuccessful = float.TryParse(str, out result);
             if (parsingSuccessful)
             {
-                Debug.Log(parameterName + " has been called!");
+                // Debug.Log(parameterName + " has been called!");
                 return result;
             }
             else
@@ -117,7 +118,7 @@ public class ParametersMgr : MonoBehaviour
             bool parsingSuccessful = bool.TryParse(str, out result);
             if (parsingSuccessful)
             {
-                Debug.Log(parameterName + " has been called!");
+                // Debug.Log(parameterName + " has been called!");
                 return result;
             }
             else
