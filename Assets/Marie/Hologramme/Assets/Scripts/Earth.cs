@@ -13,6 +13,6 @@ public class Earth : MonoBehaviour
 
     void Update()
     {
-        this.transform.Rotate(0, Speed, 0);
+        this.transform.Rotate(0, Speed * Time.deltaTime, 0);
     }
 }
