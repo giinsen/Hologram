@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -128,7 +128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &73970995
 Transform:
   m_ObjectHideFlags: 0
@@ -153,9 +153,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1e205dc16d0edf47a8e739f96745c1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rangeX: {x: 0, y: 0}
-  rangeY: {x: 0, y: 0}
-  powerUpPrefab: {fileID: 0}
+  rangeX: {x: -3.14, y: 3.14}
+  rangeY: {x: 1, y: -1}
+  powerUpPrefab: {fileID: 1228008044227430, guid: 4d9d262564314804cb5d0f1f45595a39,
+    type: 2}
   spawnTimer: 5
 --- !u!1 &121823700 stripped
 GameObject:
@@ -366,7 +367,7 @@ Transform:
   m_GameObject: {fileID: 353093229}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.98, y: 0.98, z: 0.98}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children: []
   m_Father: {fileID: 1637563598}
   m_RootOrder: 1
@@ -811,14 +812,13 @@ MonoBehaviour:
   radius: 7.6
   poleMargin: 1
   globe: {fileID: 1637563598}
-  position: {x: 0, y: 0, z: 0}
   speed: 1
   jc_ind: 1
   startingPosition: {x: 0, y: 0}
   missilePrefab: {fileID: 1881121403924572, guid: 58ca511c1fbb3804da72fbfcedaa88b7,
     type: 2}
   mySpaceship: {fileID: 220132875}
-  hitAnim: {fileID: 0}
+  hitAnim: {fileID: 1630766088070480, guid: 9689e692978330d4eb3e68e420df9f1c, type: 2}
   life: 5
   shootingCD: 1
   tempInput: {x: 0, y: 0}
@@ -847,9 +847,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  m_Radius: 0.2
+  m_Height: 0.82
+  m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &634143438
 MeshFilter:
@@ -1027,7 +1027,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -0.000061035156, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &677276845
 MonoBehaviour:
@@ -1370,7 +1370,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1065339608}
-  - component: {fileID: 1065339607}
   m_Layer: 0
   m_Name: Hologram
   m_TagString: Untagged
@@ -1378,17 +1377,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1065339607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1065339606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3057bc985a4a7d848a72f90008274857, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1065339608
 Transform:
   m_ObjectHideFlags: 0
@@ -1446,7 +1434,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ae2cff3eb617d748acf1746e44c3160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CSVFile: {fileID: 4900000, guid: 40132f447068d464cbb3fed49a1f35a7, type: 3}
 --- !u!1 &1419919537
 GameObject:
   m_ObjectHideFlags: 0
@@ -1662,14 +1649,13 @@ MonoBehaviour:
   radius: 7.6
   poleMargin: 1
   globe: {fileID: 1637563598}
-  position: {x: 0, y: 0, z: 0}
   speed: 1
   jc_ind: 0
   startingPosition: {x: 3.14, y: 0}
   missilePrefab: {fileID: 1866124781960016, guid: 274c868bd9f940a42ba0527e656377ce,
     type: 2}
   mySpaceship: {fileID: 121823700}
-  hitAnim: {fileID: 0}
+  hitAnim: {fileID: 1630766088070480, guid: aa01780d701fc634bb1136cafd9e15f4, type: 2}
   life: 5
   shootingCD: 1
   tempInput: {x: 0, y: 0}
@@ -1698,9 +1684,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  m_Radius: 0.75
+  m_Height: 3.44
+  m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1533774309
 MeshFilter:
@@ -1788,7 +1774,7 @@ Transform:
   m_GameObject: {fileID: 2100844589}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 3.85, z: 0}
-  m_LocalScale: {x: 15, y: 15, z: 15}
+  m_LocalScale: {x: 12, y: 12, z: 12}
   m_Children:
   - {fileID: 1642728537}
   - {fileID: 353093230}
@@ -1804,7 +1790,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: 220fed4b068c2d643a1bce9ad2cd548b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 220fed4b068c2d643a1bce9ad2cd548b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1898,7 +1884,7 @@ Transform:
   m_GameObject: {fileID: 1642728536}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children: []
   m_Father: {fileID: 1637563598}
   m_RootOrder: 0
@@ -2371,8 +2357,7 @@ GameObject:
 --- !u!114 &2100844590
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114292916576867734, guid: 68f755c9f88977e448a25de673ffd2e9,
-    type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2100844589}
   m_Enabled: 1

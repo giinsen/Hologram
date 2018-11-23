@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OrbitorPowerUp : Orbitor
 {
-	public float lifeDuration = 20.0f;
+	private float lifeDuration = 20.0f;
 
 	public void Setup(float x, float y)
 	{
@@ -15,7 +15,9 @@ public class OrbitorPowerUp : Orbitor
 	protected override void Start()
     {
 		base.Start();
-		StartCoroutine(DespawnTimer());
+		globe = GameObject.Find("Earth").transform;
+		transform.up = transform.position - globe.position;
+;		StartCoroutine(DespawnTimer());
 		lifeDuration = ParametersMgr.instance.GetParameterFloat("powerUpLifetime");
 	}
 
