@@ -15,8 +15,8 @@ public class OrbitorMissile : Orbitor
 
     protected override void Start()
     {
-		base.Start();
-		
+        base.Start();
+
         if (globe == null)
         {
             globe = GameObject.Find("Earth").transform;
@@ -70,9 +70,9 @@ public class OrbitorMissile : Orbitor
             if (other.gameObject != myShooterParent || hurtOwner)
             {
                 other.collider.GetComponent<OrbitorPlayer>().Hit();
+                myShooterParent.GetComponent<OrbitorPlayer>().currentLivingMissile--;
+                Destroy(this.gameObject);
             }
-            myShooterParent.GetComponent<OrbitorPlayer>().currentLivingMissile--;
-            Destroy(this.gameObject);
         }
     }
 }
