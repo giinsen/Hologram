@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameMgr : MonoBehaviour
 {
@@ -23,6 +24,11 @@ public class GameMgr : MonoBehaviour
 		if (isSpawning == false && powerUpInstance == null)
 		{
 			StartCoroutine(SpawnTimer());
+		}
+
+		if (Input.GetKey(KeyCode.R))
+		{
+			SceneManager.LoadScene(0);
 		}
 	}
 
