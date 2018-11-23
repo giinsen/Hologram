@@ -1,7 +1,7 @@
 name;value
 orbitHeight;1.5
-planetScale;12
-planetRotationSpeed;0.1
+planetScale;8
+planetRotationSpeed;6
 shipHealth;3
 shipSpeed;1
 shipMoveContinually;true
