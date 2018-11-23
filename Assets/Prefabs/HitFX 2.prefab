@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198596247292557366}
   - component: {fileID: 199769574481013592}
   m_Layer: 0
-  m_Name: HitFX
+  m_Name: HitFX 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,9 +34,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1630766088070480}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.12044001, y: 0.8346615, z: 0.20182052, w: -0.49809924}
   m_LocalPosition: {x: -0.00018310547, y: 0.591, z: 0.941}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -227,7 +227,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.00030589104, g: 1, b: 0, a: 1}
+      maxColor: {r: 0, g: 0.29121733, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

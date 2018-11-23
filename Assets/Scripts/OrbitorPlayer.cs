@@ -24,7 +24,13 @@ public class OrbitorPlayer : Orbitor
 
     public int currentLivingMissile = 0;
     private int nbMaxMissile = 1;
-
+    
+    public GameObject otherPlayer;
+    public bool dead = false;
+    public GameObject textPlayerWins;
+    private bool textWinIsVisible = false;
+    public GameObject earth;
+    public GameObject centerEarth;
 
     protected override void Start()
     {
@@ -59,7 +65,7 @@ public class OrbitorPlayer : Orbitor
 
         if (ParametersMgr.instance.GetParameterBool("shipMoveContinually"))
         {
-			tempInput = tempInput.normalized;
+            tempInput = tempInput.normalized;
             Move(-tempInput.y, tempInput.x, speed);
         }
         else
@@ -70,6 +76,19 @@ public class OrbitorPlayer : Orbitor
         if (joycon.GetButtonDown(Joycon.Button.SHOULDER_1) && canShoot && currentLivingMissile < nbMaxMissile)
         {
             Shoot(tempInput);
+        }
+
+        if (textWinIsVisible == false) { 
+            if (otherPlayer.GetComponent<OrbitorPlayer>().dead == true)
+            {
+                Debug.Log(otherPlayer.name + " : mort");
+                mySpaceship.GetComponent<MeshRenderer>().enabled = false;
+                earth.SetActive(false);
+                GameObject tpw = textPlayerWins;
+                tpw.transform.localScale = Vector3.one * 15f;
+                Instantiate(tpw, centerEarth.transform);
+                textWinIsVisible = true;
+            }
         }
     }
 
@@ -96,8 +115,7 @@ public class OrbitorPlayer : Orbitor
         if (life <= 0)
         {
 
-            //instancier le texte et réduire la planète
-
+            dead = true;
             canShoot = false;
             GameObject h = hitAnim;
             h.transform.forward = transform.position.normalized;

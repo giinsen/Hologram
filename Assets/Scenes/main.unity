@@ -317,6 +317,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 1a2322f6d92c88d47a5325b5f1783400, type: 2}
+--- !u!1 &206004841
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 206004842}
+  m_Layer: 0
+  m_Name: CenterEarth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &206004842
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 206004841}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.85, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1065339608}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &220132875 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 220fed4b068c2d643a1bce9ad2cd548b,
@@ -796,7 +824,7 @@ Transform:
   m_Children:
   - {fileID: 687591606}
   m_Father: {fileID: 1065339608}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &634143434
 MonoBehaviour:
@@ -818,11 +846,17 @@ MonoBehaviour:
   missilePrefab: {fileID: 1881121403924572, guid: 58ca511c1fbb3804da72fbfcedaa88b7,
     type: 2}
   mySpaceship: {fileID: 220132875}
-  hitAnim: {fileID: 1630766088070480, guid: 9689e692978330d4eb3e68e420df9f1c, type: 2}
+  hitAnim: {fileID: 1630766088070480, guid: 22eb464e29faf444b9b4aca704d9e9ae, type: 2}
   life: 5
   shootingCD: 1
   tempInput: {x: 0, y: 0}
   currentLivingMissile: 0
+  otherPlayer: {fileID: 1533774303}
+  dead: 0
+  textPlayerWins: {fileID: 1348940134829930, guid: 92eba86a83567d144a6239df6467364f,
+    type: 2}
+  earth: {fileID: 2100844589}
+  centerEarth: {fileID: 206004841}
 --- !u!54 &634143435
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1388,6 +1422,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1419919538}
+  - {fileID: 206004842}
   - {fileID: 1637563598}
   - {fileID: 1533774304}
   - {fileID: 634143433}
@@ -1633,7 +1668,7 @@ Transform:
   m_Children:
   - {fileID: 1807045597}
   m_Father: {fileID: 1065339608}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1533774305
 MonoBehaviour:
@@ -1660,6 +1695,12 @@ MonoBehaviour:
   shootingCD: 1
   tempInput: {x: 0, y: 0}
   currentLivingMissile: 0
+  otherPlayer: {fileID: 634143432}
+  dead: 0
+  textPlayerWins: {fileID: 1008020658435938, guid: a6aff621d153f4e4299e4325ce406dc4,
+    type: 2}
+  earth: {fileID: 2100844589}
+  centerEarth: {fileID: 206004841}
 --- !u!54 &1533774306
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1779,7 +1820,7 @@ Transform:
   - {fileID: 1642728537}
   - {fileID: 353093230}
   m_Father: {fileID: 1065339608}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1640025718
 Prefab:
