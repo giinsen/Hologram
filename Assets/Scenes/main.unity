@@ -1689,7 +1689,7 @@ MonoBehaviour:
   radius: 7.6
   poleMargin: 1
   globe: {fileID: 1637563598}
-  type: 0
+  type: 1
   hit: {fileID: 8300000, guid: 0bf071195185e2c43af7a8ba549d03a5, type: 3}
   death: {fileID: 8300000, guid: 00248cb703fce204591f92fb97c4626a, type: 3}
   shoot:
