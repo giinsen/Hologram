@@ -28,7 +28,6 @@ public class GameMgr : MonoBehaviour
 
 		if (Input.GetKey(KeyCode.R))
 		{
-			SceneManager.UnloadSceneAsync(0);
 			SceneManager.LoadScene(0);
 		}
 	}
