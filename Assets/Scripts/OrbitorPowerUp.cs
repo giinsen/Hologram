@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class OrbitorPowerUp : Orbitor
 {
+	public AudioClip spawn;
+	public AudioClip getPowerUp;
+
 	private float lifeDuration = 20.0f;
 
 	public void Setup(float x, float y)
@@ -19,6 +22,7 @@ public class OrbitorPowerUp : Orbitor
 		transform.up = transform.position - globe.position;
 ;		StartCoroutine(DespawnTimer());
 		lifeDuration = ParametersMgr.instance.GetParameterFloat("powerUpLifetime");
+		SoundManager2D.instance.PlayClip(spawn);
 	}
 
 	private IEnumerator DespawnTimer()
@@ -34,6 +38,7 @@ public class OrbitorPowerUp : Orbitor
 	{
 		if (other.tag == "Player")
 		{
+			SoundManager2D.instance.PlayClip(getPowerUp);
 			other.gameObject.GetComponent<OrbitorPlayer>().IncreaseNbMaxMissile();
 			Destroy(this.gameObject);
 		}

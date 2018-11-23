@@ -118,6 +118,8 @@ MonoBehaviour:
   radius: 0
   poleMargin: 0
   globe: {fileID: 0}
+  spawn: {fileID: 8300000, guid: b894f51ebb2121445bb6986084ea562a, type: 3}
+  getPowerUp: {fileID: 8300000, guid: 3babd38ab1a4e7741af17532c64a04f8, type: 3}
 --- !u!135 &135209754262751104
 SphereCollider:
   m_ObjectHideFlags: 1
