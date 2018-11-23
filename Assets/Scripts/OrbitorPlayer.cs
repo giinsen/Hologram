@@ -154,11 +154,12 @@ public class OrbitorPlayer : Orbitor
 
     public void Hit()
     {
+        joycon.SetRumble(160, 320, 0.6f, 200);
         SoundManager2D.instance.PlayClip(hit);
         life--;
         if (life <= 0)
         {
-
+            joycon.SetRumble(200, 360, 0.6f, 200);
             dead = true;
             canShoot = false;
             GameObject h = hitAnim;
@@ -198,6 +199,7 @@ public class OrbitorPlayer : Orbitor
     public void IncreaseNbMaxMissile()
     {
         NbMaxMissile++;
+        joycon.SetRumble(100, 260, 0.5f, 100);
     }
 
 }
