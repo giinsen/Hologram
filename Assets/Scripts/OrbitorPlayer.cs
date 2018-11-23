@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class OrbitorPlayer : Orbitor
 {
-    public float speed = 3.0f;
+    public AudioClip hit;
+    public AudioClip death;
+    public AudioClip[] shoot;
+
+    private float speed = 3.0f;
     public int jc_ind = 0;
     public Vector2 startingPosition;
     public GameObject missilePrefab;
@@ -94,6 +98,7 @@ public class OrbitorPlayer : Orbitor
 
     private void Shoot(Vector2 input)
     {
+        SoundManager2D.instance.MultiSound(shoot, 0.25f);
         canShoot = false;
         currentLivingMissile++;
         GameObject missile = Instantiate(missilePrefab, transform.position, Quaternion.identity);
@@ -111,6 +116,7 @@ public class OrbitorPlayer : Orbitor
 
     public void Hit()
     {
+        SoundManager2D.instance.PlayClip(hit);
         life--;
         if (life <= 0)
         {
@@ -142,6 +148,7 @@ public class OrbitorPlayer : Orbitor
 
     private void DestroySpaceship()
     {
+        SoundManager2D.instance.PlayClip(death);
         Destroy(this.gameObject);
     }
 

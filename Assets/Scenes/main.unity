@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -840,7 +840,12 @@ MonoBehaviour:
   radius: 7.6
   poleMargin: 1
   globe: {fileID: 1637563598}
-  speed: 1
+  hit: {fileID: 8300000, guid: 0bf071195185e2c43af7a8ba549d03a5, type: 3}
+  death: {fileID: 8300000, guid: 00248cb703fce204591f92fb97c4626a, type: 3}
+  shoot:
+  - {fileID: 8300000, guid: fc4ab73d52021784b926de5fcd9eb0f9, type: 3}
+  - {fileID: 8300000, guid: b672968293961e540b2343ae2f9d0003, type: 3}
+  - {fileID: 8300000, guid: f2de9ef05d7d5324f84a2abc41a5f643, type: 3}
   jc_ind: 1
   startingPosition: {x: 0, y: 0}
   missilePrefab: {fileID: 1881121403924572, guid: 58ca511c1fbb3804da72fbfcedaa88b7,
@@ -1138,6 +1143,142 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9f5b2e59780184f94c5cd9d20fdb82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &752799854
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 752799857}
+  - component: {fileID: 752799856}
+  - component: {fileID: 752799855}
+  m_Layer: 0
+  m_Name: Soundmanager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &752799855
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 752799854}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &752799856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 752799854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15f4858d7e72867479bb42fc6205c75e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &752799857
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 752799854}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &795545470
 GameObject:
   m_ObjectHideFlags: 0
@@ -1684,7 +1825,12 @@ MonoBehaviour:
   radius: 7.6
   poleMargin: 1
   globe: {fileID: 1637563598}
-  speed: 1
+  hit: {fileID: 8300000, guid: d1bad63884eb552459f140da46ff1030, type: 3}
+  death: {fileID: 8300000, guid: 00248cb703fce204591f92fb97c4626a, type: 3}
+  shoot:
+  - {fileID: 8300000, guid: fc4ab73d52021784b926de5fcd9eb0f9, type: 3}
+  - {fileID: 8300000, guid: b672968293961e540b2343ae2f9d0003, type: 3}
+  - {fileID: 8300000, guid: f2de9ef05d7d5324f84a2abc41a5f643, type: 3}
   jc_ind: 0
   startingPosition: {x: 3.14, y: 0}
   missilePrefab: {fileID: 1866124781960016, guid: 274c868bd9f940a42ba0527e656377ce,
