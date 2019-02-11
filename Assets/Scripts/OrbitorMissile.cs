@@ -41,7 +41,7 @@ public class OrbitorMissile : Orbitor
         if (this != null)
         {
             Destroy(this.gameObject);
-            myShooterParent.GetComponent<OrbitorPlayer>().currentLivingMissile--;
+            myShooterParent.GetComponent<OrbitorPlayer>().CurrentLivingMissile--;
         }
     }
 
@@ -70,7 +70,7 @@ public class OrbitorMissile : Orbitor
             if (other.gameObject != myShooterParent || hurtOwner)
             {
                 other.collider.GetComponent<OrbitorPlayer>().Hit();
-                myShooterParent.GetComponent<OrbitorPlayer>().currentLivingMissile--;
+                myShooterParent.GetComponent<OrbitorPlayer>().CurrentLivingMissile--;
                 Destroy(this.gameObject);
             }
         }
