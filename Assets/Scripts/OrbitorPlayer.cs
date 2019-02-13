@@ -171,6 +171,7 @@ public class OrbitorPlayer : Orbitor
 
     public void IncreaseNbMaxMissile()
     {
+        UIManager.instance.GetNewMissile(type);
         nbMaxMissile++;
         joycon.SetRumble(100, 260, 0.5f, 100);
     }
