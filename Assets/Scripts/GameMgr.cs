@@ -28,7 +28,9 @@ public class GameMgr : MonoBehaviour
 
 		if (Input.GetKey(KeyCode.R))
 		{
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+			//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+			System.Diagnostics.Process.Start(Application.dataPath.Replace("_Data", ".exe")); //new program
+			Application.Quit(); //kill current process
 		}
 	}
 
