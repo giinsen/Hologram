@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class OrbitorMissile : Orbitor
 {
-    public float speed = 5.0f;
+    public float speedMax = 5.0f;
+    public float speedMin = 2.0f;
+    public float timeBeforeSpeedMin = 3f;
     public float timeBeforeDeath = 10.0f;
     public float initialTime = 0.2f;
 
@@ -22,7 +24,7 @@ public class OrbitorMissile : Orbitor
             globe = GameObject.Find("Earth").transform;
         }
 
-        speed = ParametersMgr.instance.GetParameterFloat("projectileSpeed");
+        speedMax = ParametersMgr.instance.GetParameterFloat("projectileSpeed");
         timeBeforeDeath = ParametersMgr.instance.GetParameterFloat("projectileLifetime");
 
         StartCoroutine(LethalCD());
@@ -59,7 +61,7 @@ public class OrbitorMissile : Orbitor
     protected override void Update()
     {
         base.Update();
-        Move(initialInput.y, -initialInput.x, speed, false);
+        Move(initialInput.y, -initialInput.x, Mathf.Lerp(speedMax,speedMin, timeBeforeSpeedMin), false);
     }
 
     private void OnCollisionEnter(Collision other)
