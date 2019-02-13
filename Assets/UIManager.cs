@@ -92,14 +92,14 @@ public class UIManager : MonoBehaviour
         switch (type)
         {
             case PlayerType.P1:
-                foreach (GridControl gc in p1Grid)
+                foreach (GridControl gc in p2Grid)
                 {
                     gc.AddIcon();
                 }
                 break;
 
             case PlayerType.P2:
-                foreach (GridControl gc in p2Grid)
+                foreach (GridControl gc in p1Grid)
                 {
                     gc.AddIcon();
                 }
