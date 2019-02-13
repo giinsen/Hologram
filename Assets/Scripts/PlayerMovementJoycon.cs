@@ -13,15 +13,18 @@ public class PlayerMovementJoycon : MonoBehaviour
         GetComponent<Rigidbody>().useGravity = false;
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
 
+    #if UNITY_STANDALONE
         joycons = JoyconManager.Instance.j;
         if (joycons.Count < jc_ind + 1)
         {
             Destroy(gameObject);
         }
+    #endif
     }
 
     void Update()
     {
+        #if UNITY_STANDALONE
         Joycon j = joycons[jc_ind];
 
         if (joycons.Count > 0)
@@ -48,5 +51,11 @@ public class PlayerMovementJoycon : MonoBehaviour
                 //transform.RotateAround(planet.transform.position, v, 40f * Time.deltaTime);
             }
         }
+        #endif
+
+        #if UNITY_EDITOR
+        
+
+        #endif
     }
 }

@@ -352,6 +352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missileIcon: {fileID: 1614972116545438, guid: ea7331ee74581e24cade6487d1f478a2,
     type: 2}
+  icons: []
 --- !u!114 &105319606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -814,6 +815,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missileIcon: {fileID: 1614972116545438, guid: ea7331ee74581e24cade6487d1f478a2,
     type: 2}
+  icons: []
 --- !u!114 &323400039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1155,6 +1157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missileIcon: {fileID: 1614972116545438, guid: ea7331ee74581e24cade6487d1f478a2,
     type: 2}
+  icons: []
 --- !u!1 &507000508
 GameObject:
   m_ObjectHideFlags: 0
@@ -2111,10 +2114,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p1Slider:
-  - {fileID: 1196835548}
   - {fileID: 71517210}
   - {fileID: 231345831}
   - {fileID: 2098228736}
+  - {fileID: 1196835548}
   p2Slider:
   - {fileID: 1762776181}
   - {fileID: 708243340}
@@ -2632,6 +2635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missileIcon: {fileID: 1614972116545438, guid: ea7331ee74581e24cade6487d1f478a2,
     type: 2}
+  icons: []
 --- !u!114 &879226200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2776,6 +2780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missileIcon: {fileID: 1614972116545438, guid: ea7331ee74581e24cade6487d1f478a2,
     type: 2}
+  icons: []
 --- !u!114 &900252719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3508,6 +3513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missileIcon: {fileID: 1614972116545438, guid: ea7331ee74581e24cade6487d1f478a2,
     type: 2}
+  icons: []
 --- !u!1 &1483792960
 GameObject:
   m_ObjectHideFlags: 0
@@ -4253,6 +4259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missileIcon: {fileID: 1614972116545438, guid: ea7331ee74581e24cade6487d1f478a2,
     type: 2}
+  icons: []
 --- !u!114 &1684277424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4738,6 +4745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missileIcon: {fileID: 1614972116545438, guid: ea7331ee74581e24cade6487d1f478a2,
     type: 2}
+  icons: []
 --- !u!114 &1812035444
 MonoBehaviour:
   m_ObjectHideFlags: 0

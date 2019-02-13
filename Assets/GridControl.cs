@@ -6,43 +6,58 @@ using UnityEngine.UI;
 public class GridControl : MonoBehaviour 
 {
 	public GameObject missileIcon;
+	public List<Image> icons = new List<Image>();
+	public List<Image> blacklist = new List<Image>();
 
-	private List<Slider> icons = new List<Slider>();
-	private List<Coroutine> routines = new List<Coroutine>();
-
-	private int cursor = -1;
-
-	public void LaunchCD()
+	public void AddIcon()
 	{
-		cursor ++;
-		routines[cursor] = StartCoroutine(Cooldown(icons[cursor]));
+		GameObject icon = Instantiate(missileIcon, transform.position, Quaternion.identity, this.transform);
+		icon.GetComponent<Image>().fillAmount = 1.0f;
+		icons.Add(icon.GetComponent<Image>());
 	}
 
-	public void StopCD()
+	public void AnimateAnIcon()
 	{
-		StopCoroutine(routines[cursor]);
-		icons[cursor].value = 1.0f;
-		cursor --;
+		Image chosenIcon = GetLastAvailableImage();
+		StartCoroutine(FillingAnimation(chosenIcon));
 	}
 
-	private IEnumerator Cooldown(Slider slider)
+	private IEnumerator FillingAnimation(Image icon)
 	{
-		float duration = ParametersMgr.instance.GetParameterFloat("projectileLifetime");
 		float timer = 0.0f;
-		while (timer < duration)
+		float duration = ParametersMgr.instance.GetParameterFloat("projectileLifetime");
+		while (timer <= duration)
 		{
-			slider.value = timer/duration;
+			icon.fillAmount = timer/duration;
 			timer += Time.deltaTime;
 			yield return new WaitForEndOfFrame();
 		}
-		slider.value = 1.0f;
-		cursor --;
+		icon.fillAmount = 1.0f;
+		blacklist.Remove(icon);
+
+		int blinkRepetition = 5;
+		int count = 0;
+		float blinkDuration = 0.1f;
+		while (count < blinkRepetition)
+		{
+			icon.color = Color.green;
+			yield return new WaitForSeconds(blinkDuration);
+			icon.color = Color.white;
+			count++;
+		}
 	}
 
-	public void AddMissile()
+	private Image GetLastAvailableImage()
 	{
-		GameObject go = Instantiate(missileIcon);
-		go.transform.SetParent(transform);
-		icons.Add(go.GetComponent<Slider>());
+		for (int i = icons.Count - 1; i >= 0; --i)
+		{
+			if (!blacklist.Contains(icons[i]))
+			{
+				blacklist.Add(icons[i]);
+				return icons[i];
+			}
+		}
+		Debug.LogError("Unacceptable!");
+		return null;
 	}
 }

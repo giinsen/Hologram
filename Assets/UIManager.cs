@@ -13,9 +13,9 @@ public class UIManager : MonoBehaviour
     public GridControl[] p1Grid;
     public GridControl[] p2Grid;
 
-	private float maxLife;
+    private float maxLife;
 
-    private void Start()
+    private void Awake()
     {
         if (instance == null)
         {
@@ -26,85 +26,82 @@ public class UIManager : MonoBehaviour
             Destroy(this);
         }
 
-        maxLife = (float) ParametersMgr.instance.GetParameterInt("shipHealth");
+        maxLife = (float)ParametersMgr.instance.GetParameterInt("shipHealth");
+        InitialMissileSetup();
     }
 
-
-    public void LooseLife(PlayerType type, int newNumberOfLife)
+    public void LooseLife(PlayerType type, float newlife)
     {
+        float value = newlife / maxLife;
         switch (type)
         {
             case PlayerType.P1:
-                foreach (Image slider in p1Slider)
+                foreach (Image s in p2Slider)
                 {
-                    slider.fillAmount -= 1/maxLife;
+                    s.fillAmount = value;
                 }
                 break;
 
             case PlayerType.P2:
-                foreach (Image slider in p2Slider)
+                foreach (Image s in p1Slider)
                 {
-                    slider.fillAmount -= 1/maxLife;
+                    s.fillAmount = value;
                 }
                 break;
         }
     }
 
-    public void NewMissile(PlayerType type)
+    public void InitialMissileSetup()
+    {
+        int cartridge = ParametersMgr.instance.GetParameterInt("cartridge");
+        for (int i = 0; i < cartridge; ++i)
+        {
+            foreach (GridControl gc in p2Grid)
+            {
+                gc.AddIcon();
+            }
+            foreach (GridControl gc in p1Grid)
+            {
+                gc.AddIcon();
+            }
+        }
+    }
+
+    public void LaunchAMissileCooldown(PlayerType type)
+    {
+        switch (type)
+        {
+            case PlayerType.P1:
+                foreach (GridControl gc in p2Grid)
+                {
+                    gc.AnimateAnIcon();
+                }
+                break;
+
+            case PlayerType.P2:
+                foreach (GridControl gc in p1Grid)
+                {
+                    gc.AnimateAnIcon();
+                }
+                break;
+        }
+    }
+
+    public void GetNewMissile(PlayerType type)
     {
         switch (type)
         {
             case PlayerType.P1:
                 foreach (GridControl gc in p1Grid)
                 {
-                    gc.AddMissile();
+                    gc.AddIcon();
                 }
                 break;
 
             case PlayerType.P2:
                 foreach (GridControl gc in p2Grid)
                 {
-                    gc.AddMissile();
-                }
-                break;
-        }
-    }
-
-    public void LaunchMissile(PlayerType type)
-    {
-        switch (type)
-        {
-            case PlayerType.P1:
-                foreach (GridControl gc in p1Grid)
-                {
-                    gc.LaunchCD();
-                }
-                break;
-
-            case PlayerType.P2:
-                foreach (GridControl gc in p2Grid)
-                {
-                    gc.LaunchCD();
-                }
-                break;
-        }
-    }
-
-    public void RestoreMissile(PlayerType type)
-    {
-        switch (type)
-        {
-            case PlayerType.P1:
-                foreach (GridControl gc in p1Grid)
-                {
-                    gc.StopCD();
-                }
-                break;
-
-            case PlayerType.P2:
-                foreach (GridControl gc in p2Grid)
-                {
-                    gc.StopCD();
+                    gc.AddIcon();
                 }
                 break;
         }

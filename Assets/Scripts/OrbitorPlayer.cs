@@ -23,49 +23,15 @@ public class OrbitorPlayer : Orbitor
 
     private List<Joycon> joycons = new List<Joycon>();
     private Joycon joycon;
+
     private Rigidbody rb;
     [HideInInspector]
     public Vector2 tempInput = Vector2.zero;
     private bool canShoot = true;
 
-    public int CurrentLivingMissile
-    {
-        get
-        {
-            return currentLivingMissile;
-        }
-        set
-        {
-            if (value < currentLivingMissile)
-            {
-                UIManager.instance.RestoreMissile(type);
-            }
-            currentLivingMissile = value;
-        }
-    }
-    
-    private int currentLivingMissile = 0;
-
-    private int NbMaxMissile
-    {
-        get
-        {
-            return nbMaxMissile;
-        }
-
-        set
-        {
-            if (value > nbMaxMissile)
-            {
-                for (int i = 0; i < value - nbMaxMissile; ++i)
-                {
-                    UIManager.instance.NewMissile(type);
-                }
-            }
-        }
-    }
-
-    private int nbMaxMissile = 1;
+    [HideInInspector]
+    public int currentLivingMissile = 0;
+    private int nbMaxMissile;
     
     public GameObject otherPlayer;
     public bool dead = false;
@@ -79,6 +45,7 @@ public class OrbitorPlayer : Orbitor
 		base.Start();
 		
         joycons = JoyconManager.Instance.j;
+
         if (joycons.Count < jc_ind + 1)
         {
             Destroy(gameObject);
@@ -90,7 +57,7 @@ public class OrbitorPlayer : Orbitor
 
         rb = GetComponent<Rigidbody>();
 
-        NbMaxMissile = ParametersMgr.instance.GetParameterInt("cartridge");
+        nbMaxMissile = ParametersMgr.instance.GetParameterInt("cartridge");
         shootingCD = ParametersMgr.instance.GetParameterFloat("cdShoot");
 		speed = ParametersMgr.instance.GetParameterFloat("shipSpeed");
 		life = ParametersMgr.instance.GetParameterInt("shipHealth");
@@ -100,6 +67,7 @@ public class OrbitorPlayer : Orbitor
     {
         base.Update();
         Vector2 input = new Vector2(joycon.GetStick()[0], joycon.GetStick()[1]);
+
         if (input != Vector2.zero)
         {
             tempInput = input;
@@ -115,7 +83,10 @@ public class OrbitorPlayer : Orbitor
             Move(-input.y, input.x, speed);
         }
 
-        if (joycon.GetButtonDown(Joycon.Button.SHOULDER_1) && canShoot && CurrentLivingMissile < NbMaxMissile)
+        if (joycon.GetButtonDown(Joycon.Button.SHOULDER_1))
+            Debug.Log("stop");
+
+        if (joycon.GetButtonDown(Joycon.Button.SHOULDER_1) && canShoot && currentLivingMissile < nbMaxMissile)
         {
             Shoot(tempInput);
         }
@@ -138,11 +109,12 @@ public class OrbitorPlayer : Orbitor
     {
         SoundManager2D.instance.MultiSound(shoot, 0.25f);
         canShoot = false;
-        CurrentLivingMissile++;
+        currentLivingMissile++;
         GameObject missile = Instantiate(missilePrefab, transform.position, Quaternion.identity);
         missile.GetComponent<OrbitorMissile>().SetInput(-input);
         missile.GetComponent<OrbitorMissile>().SetInitialPosition(circleX, circleY);
         missile.GetComponent<OrbitorMissile>().myShooterParent = gameObject;
+        UIManager.instance.LaunchAMissileCooldown(type);
         StartCoroutine(ShootCD());
     }
 
@@ -157,6 +129,7 @@ public class OrbitorPlayer : Orbitor
         joycon.SetRumble(160, 320, 0.6f, 200);
         SoundManager2D.instance.PlayClip(hit);
         life--;
+        UIManager.instance.LooseLife(type, life);
         if (life <= 0)
         {
             joycon.SetRumble(200, 360, 0.6f, 200);
@@ -198,8 +171,7 @@ public class OrbitorPlayer : Orbitor
 
     public void IncreaseNbMaxMissile()
     {
-        NbMaxMissile++;
+        nbMaxMissile++;
         joycon.SetRumble(100, 260, 0.5f, 100);
     }
-
 }
