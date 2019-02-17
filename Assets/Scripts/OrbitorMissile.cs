@@ -24,7 +24,9 @@ public class OrbitorMissile : Orbitor
             globe = GameObject.Find("Earth").transform;
         }
 
-        speedMax = ParametersMgr.instance.GetParameterFloat("projectileSpeed");
+        speedMax = ParametersMgr.instance.GetParameterFloat("projectileSpeedMax");
+        speedMin = ParametersMgr.instance.GetParameterFloat("projectileSpeedMin");
+        timeBeforeSpeedMin = ParametersMgr.instance.GetParameterFloat("timeBeforeSpeedMin");
         timeBeforeDeath = ParametersMgr.instance.GetParameterFloat("projectileLifetime");
 
         StartCoroutine(LethalCD());

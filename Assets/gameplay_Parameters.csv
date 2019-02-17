@@ -7,7 +7,9 @@ shipSpeed;1
 shipMoveContinually;true
 cdShoot;1
 projectileLifetime;1.5
-projectileSpeed;2
+projectileSpeedMax;2
+projectileSpeedMin;0.5
+timeBeforeSpeedMin;0.5
 projectileHurtOwner;true
 cartridge;1
 timeIntervalBetweenSpawns;15

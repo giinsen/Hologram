@@ -130,11 +130,12 @@ MonoBehaviour:
   radius: 7.6
   poleMargin: 1.7708
   globe: {fileID: 0}
-  position: {x: 0, y: 0, z: 0}
-  speed: 2
-  die: 1
+  speedMax: 5
+  speedMin: 2
+  timeBeforeSpeedMin: 3
   timeBeforeDeath: 4
-  initialTime: 0.2
+  initialTime: 0.05
+  myShooterParent: {fileID: 0}
 --- !u!135 &135050920810743354
 SphereCollider:
   m_ObjectHideFlags: 1
